@@ -1,5 +1,15 @@
 <h1>Payment: <%= @payment["id"] %></h1>
+
+Recipient ID: <%= @payment["recipient_id"] %>
+</br>
+Transaction ID: <%= @payment["id"] %>
+</br>
+Currency: <%= @payment["currency"] %>
+</br>
+Amount: <%= @payment["amount"] %>
+</br>
 Status: <%= @payment["status"] %>
+</br>
 </br>
 <form action='/' method="get">
   <input type="submit" value="Homepage"/>

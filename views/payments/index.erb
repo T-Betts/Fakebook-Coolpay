@@ -1,32 +1,34 @@
-<%= @payments %>
-</br>
-<h1>Make Payment</h1>
-<form action='payments' method="post">
-  <label for='amount'>
-    Amount
-    <input type="number" name="amount"/>
-  </label>
-  <label for='currency'>
-    Currency
-    <input type="text" name="currency"/>
-  </label>
-  <label for='amount'>
-    Recipient_id
-    <input type="text" name="recipient_id"/>
-  </label>
-  <input type="submit" value="Submit"/>
-</form>
+<h1>Recipient List(Scroll down for Payment history)</h1>
+<% @recipients["recipients"].each do |recipient| %>
+  Name: <%= recipient["name"] %>
+  </br>
+  Recipient ID: <%= recipient["id"] %>
+  </br>
+  <form action='payments' method="post">
+    <label for='amount'>
+      Amount
+      <input type="number" name="amount"/>
+    </label>
+    <label for='currency'>
+      Currency
+      <input type="text" name="currency"/>
+    </label>
+    <input type="hidden" value="<%= recipient['id'] %>" name="recipient_id"/>
+    <input type="submit" value="Submit"/>
+  </form>
+  </br>
+<% end %>
 
-<h1>Check Status Of A Payment</h1>
-<form action='payments/:id' method="get">
-</br>
-  <label for='payment_id'>
-    Payment_ID
-    <input type="text" name="payment_id"/>
-  </label>
-  <input type="submit" value="Check Status"/>
-</form>
-</br>
-<form action='/' method="get">
-  <input type="submit" value="Homepage"/>
-</form>
+<h1>Payment History</h1>
+<% @payments["payments"].each do |payment| %>
+  Payment ID: <%= payment["id"] %>
+  </br>
+  Payment Amount: <%= payment["amount"] %>
+  </br>
+  Recipient ID: <%= payment["recipient_id"] %>
+  <form action="payments/<%= payment['id'] %>" method="get">
+    <input type="hidden" value="<%= payment['id'] %>" name="payment_id"/>
+    <input type="submit" value="Check Status"/>
+  </form>
+  </br>
+<% end %>

@@ -22,13 +22,13 @@ describe Payment do
   end
 
   describe '#self.check_payment_status' do
-  before do
-    response_payment = '{ "payments": [{"status": "paid", "amount": 10, "currency": "GBP", "recipient_id": "a", "id": "b" }] }'
-    stub_request(:get, 'https://coolpay.herokuapp.com/api/payment/:id').to_return(:body => response_payment, :status => 200, :headers => {})
-  end
+    before do
+      response_payment = '{ "payments": [{"status": "paid", "amount": 10, "currency": "GBP", "recipient_id": "a", "id": "b" }] }'
+      stub_request(:get, 'https://coolpay.herokuapp.com/api/payment/:id').to_return(:body => response_payment, :status => 200, :headers => {})
+    end
 
-  it 'checks the status of a payment' do
-    expect(Payment.check_payment_status("b")).to eq("status" => "paid", "amount" => 10, "currency" => "GBP", "recipient_id" => "a", "id" => "b")
+    it 'checks the status of a payment' do
+      expect(Payment.check_payment_status("b")).to eq("status" => "paid", "amount" => 10, "currency" => "GBP", "recipient_id" => "a", "id" => "b")
+    end
   end
-end
 end

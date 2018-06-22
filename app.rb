@@ -2,6 +2,7 @@ require 'sinatra/base'
 require './models/recipient.rb'
 require './models/payment.rb'
 require 'dotenv'
+require 'json'
 Dotenv.load
 
 class FakebookCoolpay < Sinatra::Base
@@ -20,7 +21,8 @@ class FakebookCoolpay < Sinatra::Base
   end
 
   get '/payments' do
-    @payments = Payment.show_all_payments
+    @recipients = JSON.parse(Recipient.show_all_recipients)
+    @payments = JSON.parse(Payment.show_all_payments)
     erb(:'payments/index')
   end
 
