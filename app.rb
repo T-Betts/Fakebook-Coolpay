@@ -30,7 +30,8 @@ class FakebookCoolpay < Sinatra::Base
   end
 
   get '/payments/:id' do
-    
+    @payment = Payment.check_payment_status(params[:payment_id])
+    erb(:'payments/show')
   end
 
   run! if app_file == $PROGRAM_NAME
