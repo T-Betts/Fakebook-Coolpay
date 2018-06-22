@@ -6,7 +6,7 @@ class Payment
     @currency = currency
     @recipient_id = recipient_id
   end
-  
+
   def self.show_all_payments(service = CoolpayService)
     service.authenticate
     headers = service.authorization_headers
@@ -25,5 +25,14 @@ class Payment
     }
     headers = service.authorization_headers
     response = RestClient.post('https://coolpay.herokuapp.com/api/payments', values, headers)
+  end
+
+  def self.check_payment_status(payment_id)
+    payments_hash = JSON.parse(Payment.show_all_payments)
+    payments_hash["payments"].each do |payment|
+      if payment["id"] == payment_id
+        return payment
+      end
+    end
   end
 end
