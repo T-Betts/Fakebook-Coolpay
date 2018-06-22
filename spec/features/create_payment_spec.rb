@@ -1,5 +1,5 @@
-# feature 'Add Recipient' do
-#   scenario 'Add a recipient to Coolpay API' do
+# feature 'Create Payment' do
+#   scenario 'Create a new payment' do
 #     visit('/')
 #     click_button "View/Create Payments"
 #     fill_in 'amount', with: 10
