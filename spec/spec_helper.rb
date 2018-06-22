@@ -53,6 +53,8 @@ RSpec.configure do |config|
     stub_request(:post, 'https://coolpay.herokuapp.com/api/login').to_return(:body => response_token, :status => 200, :headers => {})
     response_recipients = '{ "name":"Test Recipient" }'
     stub_request(:get, 'https://coolpay.herokuapp.com/api/recipients').to_return(:body => response_recipients, :status => 200, :headers => {})
+    response_payments = '{ "payments": [{"status": "paid", "amount": 10, "currency": "GBP", "recipient_id": "a", "id": "b" }] }'
+    stub_request(:get, 'https://coolpay.herokuapp.com/api/payments').to_return(:body => response_payments, :status => 200, :headers => {})
 end
 
   # rspec-mocks config goes here. You can use an alternate test double
