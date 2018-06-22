@@ -9,7 +9,7 @@ class Recipient
 
   def self.show_all_recipients(service = CoolpayService)
     token = service.authenticate
-    headers = {:content_type => 'application/json', :authorization => "Bearer #{@token}"}
+    headers = {:content_type => 'application/json', :authorization => "Bearer #{token}"}
     response = RestClient.get('https://coolpay.herokuapp.com/api/recipients', headers)
   end
 end
