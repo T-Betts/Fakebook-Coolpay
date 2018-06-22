@@ -8,16 +8,16 @@ class Recipient
   end
 
   def self.show_all_recipients(service = CoolpayService)
-    token = service.authenticate
-    headers = {:content_type => 'application/json', :authorization => "Bearer #{token}"}
+    service.authenticate
+    headers = service.authorization_headers
     response = RestClient.get('https://coolpay.herokuapp.com/api/recipients', headers)
   end
 
   def self.create_recipient(username, service = CoolpayService)
-    token = service.authenticate
+    service.authenticate
     new_recipient = Recipient.new(username)
     values = {"recipient":{"name": "#{new_recipient.username}"}}
-    headers = {:content_type => 'application/json', :authorization => "Bearer #{token}"}
+    headers = service.authorization_headers
     response = RestClient.post('https://coolpay.herokuapp.com/api/recipients', values, headers)
   end
 end
