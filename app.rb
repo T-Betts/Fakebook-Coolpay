@@ -18,5 +18,13 @@ class FakebookCoolpay < Sinatra::Base
     redirect('/recipients')
   end
 
+  get '/payments' do
+    erb(:'payments/index')
+  end
+
+  post '/payments' do
+    
+  end
+
   run! if app_file == $PROGRAM_NAME
 end
