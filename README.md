@@ -61,7 +61,7 @@ APIKEY=yourapikey
 
 #### 1.) Many Commits not on green
 
-Feature tests were used to guide the design process in this app and so each class and their methods were test driven and committed while the feature tests were still failing. I know this is bad practice but I was conscious of not making my git commits to large, and was also struggling with my overall design. Perhaps a more in-to-out TDD approach would have been suitable than a half-hearted out-to-in BDD style.
+Feature tests were used to guide the design process in this app and so each class and their methods were test driven and committed while the feature tests were still failing. I know this is bad practice but I was conscious of not making my git commits to large, and was also struggling with my overall design. Perhaps a more in-to-out, unit-test-first approach would have been suitable than a half-hearted out-to-in feature-test-first style.
 
 #### 3.) Feature tests commented out
 
