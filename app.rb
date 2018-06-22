@@ -13,8 +13,9 @@ class FakebookCoolpay < Sinatra::Base
     erb(:'recipients/index')
   end
 
-  post '/recipients' do
-
+  post '/recipients/new' do
+    Recipient.create_recipient(params[:username])
+    redirect('/recipients')
   end
 
   run! if app_file == $PROGRAM_NAME
