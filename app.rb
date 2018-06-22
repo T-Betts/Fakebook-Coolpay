@@ -29,5 +29,9 @@ class FakebookCoolpay < Sinatra::Base
     redirect('/payments')
   end
 
+  get '/payments/:id' do
+    
+  end
+
   run! if app_file == $PROGRAM_NAME
 end
