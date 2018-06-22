@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './models/recipient.rb'
+require './models/payment.rb'
 require 'dotenv'
 Dotenv.load
 
@@ -19,11 +20,12 @@ class FakebookCoolpay < Sinatra::Base
   end
 
   get '/payments' do
+    @payments = Payment.show_all_payments
     erb(:'payments/index')
   end
 
   post '/payments' do
-    
+
   end
 
   run! if app_file == $PROGRAM_NAME
