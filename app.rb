@@ -11,7 +11,7 @@ class FakebookCoolpay < Sinatra::Base
   end
 
   get '/recipients' do
-    @recipients = Recipient.show_all_recipients
+    @recipients = JSON.parse(Recipient.show_all_recipients)
     erb(:'recipients/index')
   end
 

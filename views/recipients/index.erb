@@ -1,4 +1,7 @@
-<%= @recipients %>
+<% @recipients["recipients"].each do |recipient| %>
+  <%= recipient %>
+  </br>
+<% end %>
 <h1>Create Recipient</h1>
 <form action='recipients/new' method="post">
   <label for='username'>
