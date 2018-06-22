@@ -51,7 +51,9 @@ RSpec.configure do |config|
   config.before(:each) do
     response_token = '{ "token": "auth_token" }'
     stub_request(:post, 'https://coolpay.herokuapp.com/api/login').to_return(:body => response_token, :status => 200, :headers => {})
-  end
+    response_recipients = '{ "name":"Test Recipient" }'
+    stub_request(:get, 'https://coolpay.herokuapp.com/api/recipients').to_return(:body => response_recipients, :status => 200, :headers => {})
+end
 
   # rspec-mocks config goes here. You can use an alternate test double
   # library (such as bogus or mocha) by changing the `mock_with` option here.
