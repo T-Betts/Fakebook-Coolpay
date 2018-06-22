@@ -41,3 +41,22 @@ I would like to be able to check whether a payment was successful.
 ```
 ## Domain Model
 ![Domain Model](Fakebook-CoolpayAPI-domain-model.jpg)
+
+## How to use this app
+
+1.) Clone this repo
+
+3.) Install bundler gem if you don't already have it. Then run ```bundle install``` to install dependencies.
+
+3.) Create your own .env file in the root of the project, and in this file set your own valid username and api_key environment variables for the Coolpay API like so:
+```
+USERNAME=yourusername
+APIKEY=yourapikey
+```
+4.) To run the tests run ```rspec``` in the command line from the root of the project.
+
+4.) To see the app in action, run ```rackup``` and head to http://localhost:9292/
+
+## Issues and Concerns
+
+#### 1.) Many Commits not on green
