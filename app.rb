@@ -25,7 +25,8 @@ class FakebookCoolpay < Sinatra::Base
   end
 
   post '/payments' do
-
+    Payment.create_payment(params[:amount], params[:currency], params[:recipient_id])
+    redirect('/payments')
   end
 
   run! if app_file == $PROGRAM_NAME
