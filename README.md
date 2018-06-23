@@ -63,10 +63,10 @@ APIKEY=yourapikey
 
 Feature tests were used to guide the design process in this app and so each class and their methods were test driven and committed while the feature tests were still failing. I know this is bad practice but I was conscious of not making my git commits to large, and was also struggling with my overall design. Perhaps a more in-to-out, unit-test-first approach would have been suitable than a half-hearted out-to-in feature-test-first style.
 
-#### 3.) Feature tests commented out
+#### 2.) Feature tests commented out
 
 Once the necessary logic was implemented to get a feature working as I had intended, I commented out the feature tests as I hadn't mocked API calls in them, only in the unit tests. I did not want real calls to the Coolpay API to be made every time I ran rspec. This has meant there are several untested lines of code in app.rb, and the overall test coverage is only 89.29%.
 
-#### 2.) Authentication to Coolpay happens in every method
+#### 3.) Authentication to Coolpay happens in every method
 
 I was not sure if/when authentication tokens expire so I decided to authenticate in every request made to Coolpay. I am not sure whether this is a sensible thing to do.  

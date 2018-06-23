@@ -8,14 +8,14 @@ describe Recipient do
     end
   end
 
-  describe  '#self.create_recipient' do
+  describe '#self.create_recipient' do
     before do
       response_new_recipient = '{ name":"Test Recipient" }'
-      stub_request(:post, 'https://coolpay.herokuapp.com/api/recipients').to_return(:body => response_new_recipient, :status => 200, :headers => {})
+      stub_request(:post, 'https://coolpay.herokuapp.com/api/recipients').to_return(body: response_new_recipient, status: 200, headers: {})
     end
 
     it 'creates a recipient' do
-      Recipient.create_recipient("Test Recipient")
+      Recipient.create_recipient('Test Recipient')
       recipients = Recipient.show_all_recipients
       expect(recipients).to include('"name":"Test Recipient"')
     end

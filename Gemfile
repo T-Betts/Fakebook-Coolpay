@@ -10,4 +10,4 @@ gem 'sinatra'
 gem 'webmock'
 
 gem 'simplecov', require: false
-  gem 'simplecov-console', require: false
+gem 'simplecov-console', require: false
